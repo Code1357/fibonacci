@@ -26,6 +26,7 @@ for (let i = 0; i <= length; i++) {
  * ES6で利用できるMapを使ってみる
  */
 
+ /*
  'use strict';
  // 連想配列,memo
  const memo = new Map();
@@ -46,3 +47,25 @@ for (let g = 0; g <= length2; g++) {
 }
 // $ node app.js 
 // $ 結果,爆速
+*/
+
+
+ // トリナフィボナッチ数列を作る
+ 'use strict';
+ const memo3 = new Map();
+ memo3.set(0, 0);
+ memo3.set(1, 0);
+ memo3.set(2, 1);
+ function trib(n) {
+   if (memo3.has(n)) {
+     return memo3.get(n);
+   }
+   const value = trib(n - 1) + trib(n - 2) + trib(n - 3); 
+   memo3.set(n, value);
+   return value;
+ }
+ const length3 = 40;
+ for (let d = 0; d <= length3; d++) {
+   console.log(trib(d));
+ }
+
